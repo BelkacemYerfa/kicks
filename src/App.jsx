@@ -1,16 +1,49 @@
-import { useState } from 'react'
-import { Button } from "./components/ui/button"
+import { createBrowserRouter } from "react-router-dom";
+import Home from "./routes/Home";
+import Products from "./routes/products";
+import ProductDetails from "./routes/details-product";
+import Layout from "./components/layouts/index";
+import { products, product } from "./lib/fetch";
+import Login from "./routes/login";
 
-function App() {
-  const [count, setCount] = useState(0)
+const getProducts = () => {
+  return products();
+};
 
-  return (
-    <Button type="submit" onClick={()=> {
-      setCount(count => count + 1)
-    }}>
-      {count}
-    </Button>
-  )
-}
+const getProduct = ({ params }) => {
+  const token = document.cookie.split("=")[1];
+  if (!token) {
+    window.location.href = "/login";
+  }
+  return product(params.id);
+};
 
-export default App
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/",
+        loader: getProducts,
+        element: <Home />,
+      },
+      {
+        path: "products",
+        loader: getProducts,
+        element: <Products />,
+      },
+      {
+        path: "products/:id",
+        loader: getProduct,
+        element: <ProductDetails />,
+      },
+    ],
+  },
+]);
+
+export { router };
