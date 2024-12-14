@@ -5,8 +5,8 @@ import { cn } from "../../lib/utils";
 export const ProductDetails = () => {
   const { name, price, description, images } = useLoaderData();
   return (
-    <div className="flex gap-4 mt-10">
-      <div className="grid grid-cols-2 grid-rows-2 gap-2">
+    <div className="main-product-wrapper">
+      <div className="images-container">
         {Array.from({ length: 4 }).map((_, index) => {
           const roundSide = function () {
             if (index === 0) {
@@ -31,10 +31,10 @@ export const ProductDetails = () => {
           );
         })}
       </div>
-      <div className="flex flex-col gap-4 max-w-md">
-        <h2 className="text-5xl font-medium">{name}</h2>
-        <p className="text-xl text-blue-500">${price}</p>
-        <div className="flex flex-col w-full gap-1.5">
+      <div className="product-details">
+        <h2 className="main-product-title">{name}</h2>
+        <p className="main-product-price">${price}</p>
+        <div className="buttons">
           <Button>Add to Cart</Button>
           <Button className="bg-blue-500">Buy it now</Button>
         </div>

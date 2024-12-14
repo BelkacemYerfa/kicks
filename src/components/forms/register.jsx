@@ -3,11 +3,8 @@ import { Button } from "../ui/button";
 
 export const Register = () => {
   return (
-    <form className="flex items-center gap-2">
-      <Input
-        placeholder="enter email"
-        className="focus:ring-0 placeholder:text-white max-w-xs"
-      />
+    <form className="register-wrapper">
+      <Input placeholder="enter email" className="footer-input" />
       <Button type="submit">Submit</Button>
     </form>
   );

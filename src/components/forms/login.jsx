@@ -1,10 +1,8 @@
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 export const Login = () => {
-  const navigate = useNavigate();
   useEffect(() => {
     const token = document.cookie.split("=")[1];
     if (token) {
@@ -17,6 +15,21 @@ export const Login = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    if (!email || !password) {
+      alert("Please fill all the fields");
+      return;
+    }
+
+    if (!email.includes("@")) {
+      alert("Please enter a valid email");
+      return;
+    }
+
+    if (password.length < 8) {
+      alert("Password should be at least 8 characters long");
+      return;
+    }
+
     const user = {
       email,
       password,
@@ -41,14 +54,14 @@ export const Login = () => {
     if (res.ok) {
       const data = await res.json();
       document.cookie = `token=${user.token}#${data.id}`;
-      navigate("/");
+      window.location.href = "/";
     } else {
       alert("Invalid credentials");
     }
   };
   return (
-    <div className="space-y-3 max-w-md w-full">
-      <h2 className="text-2xl font-semibold">Login</h2>
+    <div className="login-main-wrapper">
+      <h2 className="login-title">Login</h2>
       <form className="space-y-2" onSubmit={handleSubmit}>
         <Input
           type="email"

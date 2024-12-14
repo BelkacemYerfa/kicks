@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,7 +29,7 @@
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem
+    --radius: 0.5rem;
   }
 }
 
@@ -44,5 +44,182 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .title {
+    @apply text-[13.5rem] text-center font-extrabold;
+  }
+  .card {
+    @apply p-1 max-w-sm space-y-3 bg-transparent border-0 shadow-none !important;
+  }
+  .card-content {
+    @apply flex items-center justify-center p-2 bg-white rounded-xl !important;
+  }
+  .card-image {
+    @apply overflow-hidden w-full h-52 rounded-lg object-cover;
+  }
+  .popover {
+    @apply bg-popover text-popover-foreground;
+  }
+  .button {
+    @apply rounded-full px-4 py-2;
+  }
+  .main-image {
+    @apply w-full h-[40rem] object-cover rounded-[4rem];
+  }
+  .sub-container {
+    @apply absolute bottom-10 flex w-full items-end justify-between px-12;
+  }
+
+  .promo-card {
+    @apply bg-transparent border-0 shadow-none !important;
+  }
+
+  .promo-card-title {
+    @apply text-white text-5xl uppercase;
+  }
+
+  .promo-card-details {
+    @apply text-white text-2xl !important;
+  }
+
+  .promo-card-footer {
+    @apply mt-4 px-0 !important;
+  }
+
+  .footer-button {
+    @apply bg-blue-500 hover:bg-blue-600 text-lg h-10 !important;
+  }
+
+  .sub-images {
+    @apply flex flex-col gap-5;
+  }
+
+  .sub-image-container {
+    @apply ring ring-white rounded-2xl;
+  }
+
+  .sub-image {
+    @apply size-40 object-cover rounded-2xl;
+  }
+
+  .products-wrapper {
+    @apply flex items-center justify-between;
+  }
+
+  .product-title {
+    @apply text-3xl font-medium;
+  }
+
+  .link-see-more {
+    @apply flex items-center justify-between !important;
+  }
+
+  .product-grid {
+    @apply grid grid-cols-4 gap-2;
+  }
+
+  .products-title {
+    @apply text-3xl font-medium;
+  }
+
+  .products-w .pagination-link {
+    @apply outline-1 outline outline-[#232321] !h-7 !w-9 !rounded-lg mx-1 !p-0 !important;
+  }
+
+  .pagination-link-active {
+    @apply bg-[#232321] text-white !important;
+  }
+
+  .pagination-update {
+    @apply ring-1 ring-[#232321] !h-7 !important;
+  }
+
+  .main-product-wrapper {
+    @apply flex gap-4 mt-10;
+  }
+
+  .images-container {
+    @apply grid grid-cols-2 grid-rows-2 gap-2;
+  }
+
+  .product-details {
+    @apply flex flex-col gap-4 max-w-md;
+  }
+
+  .main-product-title {
+    @apply text-5xl font-medium;
+  }
+
+  .main-product-price {
+    @apply text-xl text-blue-500;
+  }
+
+  .buttons {
+    @apply flex flex-col w-full gap-1.5;
+  }
+
+  .login-wrapper {
+    @apply w-full mt-10;
+  }
+
+  .login-sub-wrapper {
+    @apply flex w-full justify-center;
+  }
+
+  .login-main-wrapper {
+    @apply space-y-3 max-w-md w-full;
+  }
+
+  .login-title {
+    @apply text-2xl font-semibold;
+  }
+
+  .footer {
+    @apply bg-blue-500 py-10 px-14 flex items-center gap-2 rounded-t-3xl mt-14;
+  }
+
+  .footer-details {
+    @apply space-y-5 w-1/2;
+  }
+
+  .footer-title {
+    @apply text-white text-4xl uppercase;
+  }
+
+  .footer-description {
+    @apply text-xl text-white/80;
+  }
+
+  .footer-logo {
+    @apply flex items-center justify-center w-1/2;
+  }
+  .register-wrapper {
+    @apply flex items-center gap-2;
+  }
+  .footer-input {
+    @apply focus:ring-0 placeholder:text-white max-w-xs !important;
+  }
+
+  .navbar-wrapper {
+    @apply px-3 py-5 bg-white w-full text-sm rounded-xl;
+  }
+
+  .navbar-list {
+    @apply flex items-center justify-between;
+  }
+
+  .avatar {
+    @apply rounded-full size-6;
+  }
+
+  .dropdown-item {
+    @apply flex flex-col items-start gap-1;
+  }
+
+  .email {
+    @apply text-base font-medium;
   }
 }

@@ -5,18 +5,9 @@ import { buttonVariants } from "../ui/button";
 
 export const ProductCard = ({ id, name, price, images, className }) => {
   return (
-    <Card
-      className={cn(
-        "p-1 max-w-sm space-y-3 bg-transparent border-0 shadow-none",
-        className
-      )}
-    >
-      <CardContent className="flex items-center justify-center p-2 bg-white rounded-xl">
-        <img
-          src={images}
-          alt={name}
-          className="overflow-hidden w-full h-52 rounded-lg object-cover"
-        />
+    <Card className={cn("card", className)}>
+      <CardContent className="card-content">
+        <img src={images} alt={name} className="card-image" />
       </CardContent>
       <CardTitle className="text-xl">{name}</CardTitle>
       <Link to={`/products/${id}`} className={cn("w-full", buttonVariants())}>

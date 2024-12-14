@@ -7,31 +7,23 @@ const imgLink =
 export const Header = () => {
   return (
     <header>
-      <h1 className="text-[13.5rem] text-center font-extrabold">
+      <h1 className="title">
         DO IT <span className="text-blue-500">RIGHT</span>
       </h1>
-      <div className=" relative">
-        <img
-          src={imgLink}
-          alt="home"
-          className="w-full h-[40rem] object-cover rounded-[4rem]"
-        />
-        <div className="absolute bottom-10 flex w-full items-end justify-between px-12">
-          <Card className="bg-transparent border-0 shadow-none">
-            <CardTitle className="text-white text-5xl uppercase">
-              Nike Air Max
-            </CardTitle>
-            <CardDescription className="text-white text-2xl">
+      <div className="relative">
+        <img src={imgLink} alt="home" className="main-image" />
+        <div className="sub-container">
+          <Card className="promo-card">
+            <CardTitle className="promo-card-title">Nike Air Max</CardTitle>
+            <CardDescription className="promo-card-details">
               Nike introducing the new air max for <br /> everyone&apos;s
               comfort
             </CardDescription>
-            <CardFooter className="mt-4 px-0">
-              <Button className="bg-blue-500 hover:bg-blue-600 text-lg h-10">
-                Shop Now
-              </Button>
+            <CardFooter className="promo-card-footer">
+              <Button className="footer-button">Shop Now</Button>
             </CardFooter>
           </Card>
-          <div className="flex flex-col gap-5">
+          <div className="sub-images">
             <SubImage img={imgLink} />
             <SubImage img={imgLink} />
           </div>
@@ -43,8 +35,8 @@ export const Header = () => {
 
 const SubImage = ({ img }) => {
   return (
-    <div className="ring ring-white rounded-2xl">
-      <img src={img} alt="home" className="size-40 object-cover rounded-2xl" />
+    <div className="sub-image-container">
+      <img src={img} alt="home" className="sub-image" />
     </div>
   );
 };

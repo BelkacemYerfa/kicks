@@ -51,10 +51,10 @@ export const Products = () => {
   return (
     <div className="mt-10">
       <div className="space-y-2">
-        <h2 className="text-3xl font-medium">Life Style Shoes</h2>
+        <h2 className="products-title">Life Style Shoes</h2>
         <p>{products.length} items</p>
       </div>
-      <div className="grid grid-cols-4 gap-2">
+      <div className="product-grid">
         {products
           .slice(
             (currentPage - 1) * ProductPerPage,
@@ -112,7 +112,7 @@ const PaginatedProducts = ({
           <PaginationPrevious
             href="#"
             onClick={handlePrevious}
-            className="ring-1 ring-[#232321] !h-7 "
+            className="pagination-update"
           />
         </PaginationItem>
         {paginationRange.map((item, index) => {
@@ -128,12 +128,12 @@ const PaginatedProducts = ({
               <PaginationLink
                 to={`?page=${item}`}
                 className={cn(
-                  "outline-1 outline outline-[#232321] !h-7 !w-9 !rounded-lg mx-1 !p-0",
+                  "pagination-link",
                   buttonVariants({
                     variant: item === currentPage ? "outline" : "ghost",
                   }),
                   {
-                    "bg-[#232321] text-white": item === currentPage,
+                    "pagination-link-active": item === currentPage,
                   }
                 )}
               >
@@ -146,7 +146,7 @@ const PaginatedProducts = ({
           <PaginationNext
             to="#"
             onClick={handleNext}
-            className="ring-1 ring-[#232321] !h-7 "
+            className="pagination-update"
           />
         </PaginationItem>
       </PaginationContent>

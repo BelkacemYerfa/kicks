@@ -8,12 +8,12 @@ export const Products = () => {
   const products = useLoaderData();
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
-        <h3 className="text-3xl font-medium">Products</h3>
+      <div className="products-wrapper">
+        <h3 className="product-title">Products</h3>
         <Link
           to={"/products"}
           className={cn(
-            "flex items-center justify-between",
+            "link-see-more",
             buttonVariants({
               variant: "secondary",
             })
@@ -23,7 +23,7 @@ export const Products = () => {
           <ChevronRight />
         </Link>
       </div>
-      <div className="grid grid-cols-4 items-center gap-2 flex-wrap">
+      <div className="product-grid">
         {products.map((item, index) => {
           if (index < 4) {
             return <ProductCard key={item.id} {...item} />;
